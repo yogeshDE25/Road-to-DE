@@ -14,3 +14,5 @@ This repository contains materials and practice exercises for Digital Engineerin
 2. Navigate to the relevant folders for your current topic
 3. Follow the README files in each subdirectory for specific instructions
 
+##structure
+
