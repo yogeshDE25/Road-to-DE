@@ -1,0 +1,39 @@
+24/2/2026
+RTL(Register Transfer Level)(verilog, VHDL) to GDS(Graphical Database System)(Layout)
+I start the subject by revise the old topics. The topics consists of integrated systems, Layers, Designs.
+
+In IC fabrication 
+ silicon ingot–>wafer(contains 100s of Dies)–>die(consists of n numbers of transistors)–>Chip(packaging).
+the design and fabrication has to be know each other to get efficient output.
+
+
+They are four types of designs are there
+1. Full custom- in this we have create the system in transistor level.
+2. Standard cell- in the we have the standard cell like add, or, nand, etc. only we have make the circuit by using them.
+3. Gate array based- in the we have cell that will be in fixed position we have to connect that accordingly.
+4. FPGA-there going be a fixed block of logic and IOs. By programming we have connect all those.
+
+In IC design
+Three main parameters are their Power, Performance, Area
+other three parameters reliability, schedule, testability
+In IC design trade-off will come into the picture
+
+VLSI design flow
+
+Idea-->RTL-->GDS-->Chip
+Idea-->RTL(pre-RTL)-System Level Design.
+In that we have analysis the required and make it as software and hardware combination device to achieve the good efficiency. We have to do an analysis to move the function from software to hardware and vise verse.
+In software the device is capability is come into picture. In hardware price and making time will come into the picture.
+after decided the functions which all are in hardware. We have write a code for the hardware(C, C++,.) and we have to convert in to RTL(verilog). 
+Function description-implementation gap->RTL. Implementation gap will be there because in C or C++ timing or clock is not a worrying sign compared to RTL.
+
+RTL also referred as data flow description. In RTL two blocks are important data, control.
+The implementation gap can be solve by manual coding, IP assembly, behavior synthesis.
+manual coding, we can read RTL code directly. IP assembly, We can use existing RTL code. Behavior synthesis, it is software that can convert the function description to RTL.
+one prefect example of IP(intellectual property) is soc(system on chip). In IP we have to do interconnections. 
+In behavior synthesis we have load the design(not timed), constrains(power, freq,.) and library resources, it will generate the RTL codes. Behavior synthesis also called as high level synthesis
+In this cost metrics will come into picture.
+1. Area(no of element in the system).
+2. Latency(how many clock is required for output?)
+3. Maximum clock frequency(worst case combination circuit).
+Maximum clock frequency, in a synchronous circuit time period(clock cycle) will be there, in the combination circuit propagation delay will be there.For good circuit design Tp > d this has to verify.   
