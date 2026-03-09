@@ -1,6 +1,6 @@
-unix commands
-in which we are going to work in Linux(wsl).
-commands
+UNIX Commands
+In which we are going to work in Linux (WSL).
+Commands
 1. cd- change directory ex. cd folder name
 2. ls- list
 3. pwd- path of the directory
@@ -22,49 +22,49 @@ commands
 19.whoami- tells the username
 
 RTL to GDS flow
-RTL->GDS if you see in depth we can add another stop in the flow. then the flow become RTS->netlist->GDS.
-RTL to netlist flow. in the we have to logic synthesis. netlist and GDS in this we have to pyshical design.
+RTL->GDS if you see in depth we can add another stop in the flow. Then the flow become RTS->netlist->GDS.
+RTL to netlist flow. in that we have to logic synthesis. Netlist and GDS in this we have to do physical design.
 logic synthesis tool generate the netlist. in this file we can see how the interconnections are made.
-in the tool we have to give inputs. 1/RTL program(Verilog) 2/Library(.lib file)- in this we can see the standard cells. 3/constraints(.sdc)-in the we can see the constraints like time,,etc.
+in the tool we have to give inputs. 1/RTL program(Verilog) 2/Library(.lib file)- in this we can see the standard cells. 3/constraints(.sdc)-in that we can see the constraints like time,,etc.
 the software will generate the netlist(verilog) with the help of the inputs.
-one of the challenage will be optimzation. function of RTL has to match the function of the netlist.
+one of the challenges will be optimzation. Function of RTL has to match the function of the netlist.
 
 netlist terminologes
-1. design - it will be final high level design represent as a circuit.
+1. Design - it will be final high level design represent as a circuit.
 2. ports - it the interface between the real world signal to the circuits.
-	1. input ports- signal going inside to the circuits. input ports also called as primary input(pi)
-	2. output ports- signals coming out of the circuits.output ports also called as primary output(po).
+	1. input ports- signal going inside to the circuits. Input ports also called as primary input (pi)
+	2. output ports- signals coming out of the circuits. Output ports also called as primary output (po).
 Librarys
 cells- its a function contains of the standard cells circuits(ex. add, xor, mux,..)
 a design consists of n of cells.
-instances- a cell is used the design called as instance. using a cell in design called as instantiation.
+instances- a cell is used the design called as instance. Using a cell in design called as instantiation.
 we can instant same cell n number of times.
 pins- it can be interface of library cells or instance cell.
 pins can be input or output.
 we can also specifical mention pins as library pins or instance pin. most of the time it will same.
-pin names-cells may have same pin name while instantiate that name will be differ by that we can identify which cell pin is it?). while representing pin name instant name(i1)/pin name(a). by this we can differenciate.
+pin names-cells may have same pin name while instantiate that name will be differ by that we can identify which cell pin is it?. While representing pin name instant name(i1)/pin name(a). by this we can differentiate.
 net- the wire which the cells is called as net.
 
 RTL->netlist. internal steps RTL-RTL synthesis->netlist(generic gate)-Logic optimization->optimized netlist(generic gate)-Technology mapping->netlist(standard cell)-technology dependent optimization->optimized netlist(Standard cell)
 in RTL synthesis RTL code is converted into generic gates
 in the generic gate its a generic representation the cell (and, or..)without transistor details. so that we cant calculate area, power, performance in that.
-generic gate as has a well defined boolen function.
+generic gate as has a well defined boolean function.
 Logic optimization in that logics are minimized using methods like k-map.
-technology mapping- mapping of generic gate netlist with standard cells with the help of libraries. in standrad cell we can know the transistor level details.
-technology dependent optimization- in standard cell we will know the transistor details so we can calculate PPA and we can do optomization accordingly.
+technology mapping- mapping of generic gate netlist with standard cells with the help of libraries. in standard cell we can know the transistor level details.
+technology dependent optimization- in standard cell we will know the transistor details so we can calculate PPA and we can do optimization accordingly.
 
 
 Net list-physical design->GDS
-in physical design we need netlist(Verilog), Library(similar libaray as used in Synthesis and library which contian the transistor description like pinout, area,etc), constraints(timing, mapping,,etc), Floorplan(placement of cells,,).
-in the physical design there are two important thing we have to see 1. placement(placement of the cells), 2. Routing(connection betwwen cells).
+in physical design we need netlist(Verilog), Library(similar libaray as used in Synthesis and library which contain the transistor description like pinout, area,etc), constraints(timing, mapping,,etc), Floorplan(placement of cells,,).
+in the physical design there are two important thing we have to see 1. placement(placement of the cells), 2. Routing(connection between cells).
 
 the major steps involvded in the physical design flow.
-chip planning(in this floor plan & power delivery network)-placement(placement of cell)->clock tree synthesis(branching te clock according to the sequenctional circuit in the design)->global routing(general routing between cells)->detailed routing(detailed routing)->ECO(engineering optimization)->write GDS(mask design).
-Chip planning
+chip planning(in this floor plan & power delivery network)-placement(placement of cell)->clock tree synthesis(branching the clock according to the sequential circuit in the design)->global routing(general routing between cells)->detailed routing(detailed routing)->ECO(engineering optimization)->write GDS(mask design).
+Chip planning	
 1. this the frist and most important step.
 2. placement of blocks, marco, memory.
 3. partioning into subsytem, modules.
-4. mapping of IOs and Power line.(power line has to go all points required without any voltage drop over the tolarance limit)
+4. mapping of IOs and Power line.(power line has to go all points required without any voltage drop over the tolerance limit)
 
 placement
 standard cell placement are done here.
@@ -74,7 +74,7 @@ objectives.
 3. ensure no congestion.
 
 clock tree synthesis
-1. decide the toplogy of clock signal from the source to various end points.
+1. decide the toplogy of clock signal from the source to various end points (sinks).
 2. in this stage the clock routing is done.
 objectives
 1. to reduce skew(duration between arrival of clock signals to the final nodes) maintain the symmetric circuits.
@@ -87,11 +87,11 @@ ojective
 
 Routing is a complicated process so, we have divide into two steps. 1. global routing, 2. detailed routing.
 Global routing
-1. in this we have plan the route of the signal from one bins(we will pratition the cell/block for the referance) to other.
-2. in this we will know many possibilites of connecting a bins.
+1. in this we have plan the route of the signal from one bins(we will partition the cell/block for the referance) to other.
+2. in this we will know many possibiliites of connecting a bins.
 
 Detailed routing
-1. in this we actual do the routing according tothe plan of the global routing.
+1. in this we actual do the routing according to the plan of the global routing.
 2. in this we route the signal through the layers using via.
 
 Engineering change order- in this minimal fine tuning is taken care(optional)
@@ -101,11 +101,10 @@ write GDS- we dump the layout to make the GDS file.
 in each steps there can be a intermediate step in that we optimize each steps accordingly.
 if we have to do design change make its as minimal. if we do more changes that will be hard to trace and optimize the design.
 
-after the physical design we have to verify the timing, power and signal intergation, also we have to check the design it follows the constraints.
+after the physical design we have to verify the timing, power and signal integration, also we have to check the design it follows the constraints.
 
-
-
-
+If not we proper output we have to go back to the placement and continue the same process again and again until we got a output.
+As a designer we have to generate the design with minimal iterations.
 
 
 
