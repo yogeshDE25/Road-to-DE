@@ -6,7 +6,6 @@ In IC fabrication
  silicon ingot–>wafer(contains 100s of Dies)–>die(consists of n numbers of transistors)–>Chip(packaging).
 the design and fabrication has to be know each other to get efficient output.
 
-
 They are four types of designs are there
 1. Full custom- in this we have create the system in transistor level.
 2. Standard cell- in the we have the standard cell like add, or, nand, etc. only we have make the circuit by using them.
